@@ -21,6 +21,20 @@ class TestCalendar {
 
     }
 
-// Implement test cases for the equivalent partitions
+    @ParameterizedTest
+    @ValueSource(ints = {1804, 1908, 1912, 2001, 2020})
+    public void acceptableValueTest(int year) {
+
+        Calendar cal = new Calendar(year);
+
+        if (year >= 1900 && year < 2000){
+            assertEquals(gc.isLeapYear(year), cal.isLeapYear());
+        } else {
+            assertFalse(cal.isLeapYear());
+        }
+
+
+    }
+
 
 }
